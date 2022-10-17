@@ -1,7 +1,7 @@
 import random
 import time
 
-mylist = ["rock", "paper", "scissors"]
+mylist = ["rock", "paper", "scissors", " gun"]
 pscore = 0
 pcscore = 0
 
