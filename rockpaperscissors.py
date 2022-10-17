@@ -1,7 +1,7 @@
 import random
 import time
 
-mylist = ["rock", "paper", "scissors", " gun"]
+mytupl = ("rock", "paper", "scissors")
 pscore = 0
 pcscore = 0
 
@@ -11,40 +11,40 @@ print("Great, let's play " + player + "!")
 time.sleep(0.5)
 while True:
     print("Get ready!")
-    time.sleep(0.5)
+    time.sleep(0.4)
     print("Rock...")
-    time.sleep(0.5)
+    time.sleep(0.4)
     print("Paper...")
-    time.sleep(0.5)
+    time.sleep(0.4)
     print("Scissors...")
-    time.sleep(0.5)
+    time.sleep(0.4)
     print("Shoot!")
-    pcchoice = random.choice(mylist)
+    pcchoice = random.choice(mytupl)
     while True:
-        pchoice = input("Enter your choice(rock, paper, scissors): ")
-        if pchoice == "rock" or pchoice == "paper" or pchoice == "scissors":
-            print("Looks like you picked " + pchoice + ", and I picked " + pcchoice + "!")
+        try:
+            play = mytupl[int(input("Enter 1, 2, or 3 (1=rock, 2=paper, 3=scissors): ")) - 1]
+            print("Looks like you picked " + play + ", and I picked " + pcchoice + "!")
             time.sleep(1)
-            if pchoice == pcchoice:
+            if play == pcchoice:
                 print("It's a tie!")
-            elif pchoice == "rock" and pcchoice == "paper" or pchoice == "paper" and pcchoice == "scissors" or pchoice == "scissors" and pcchoice == "rock":
+            elif play == "rock" and pcchoice == "paper" or play == "paper" and pcchoice == "scissors" or play == "scissors" and pcchoice == "rock":
                 print("Sorry you lose!")
                 pcscore += 1
-            elif pchoice == "paper" and pcchoice == "rock" or pchoice == "scissors" and pcchoice == "paper" or pchoice == "rock" and pcchoice == "scissors":
+            elif play == "paper" and pcchoice == "rock" or play == "scissors" and pcchoice == "paper" or play == "rock" and pcchoice == "scissors":
                 print("You win! Congradulations!")
                 pscore += 1
             break
-        else:
-            print(pchoice + " isn't a choice silly! Try again")
+        except:
+            print("Please enter 1, 2, or 3")
             continue
     print( )
     print(player + ": " + str(pscore) + " | Computer: " + str(pcscore))
     print( )
-    response = input("Would you like to play again?(y/n) ")
-    if response == "y" or response == "Y":
-        print("Okay " + player + ", let's do it!")
-        continue
-    elif response == "n" or response == "N":
+    
+    response = input("Press any key to play again or x to exit: ")
+    if response == "x":
         print("Thanks for playing!")
         time.sleep(1)
         break
+    print("Okay " + player + ", let's do it!")
+    continue
