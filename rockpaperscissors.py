@@ -6,7 +6,7 @@ pscore = 0
 pcscore = 0
 
 input("Press enter to play rock, paper, scissors!")
-player = input("What is your name? ")
+player = input("What is your name? ").capitalize()
 print("Great, let's play " + player + "!")
 time.sleep(0.5)
 while True:
@@ -41,11 +41,10 @@ while True:
     print(player + ": " + str(pscore) + " | Computer: " + str(pcscore))
     print( )
     
-    response = input("Press any key to play again or x to exit: ")
+    response = input("Press enter to play again or x to exit: ")
     if response == "x":
         print("Thanks for playing!")
         time.sleep(1)
         break
     print("Okay " + player + ", let's do it!")
     continue
-#Mike Wolski
